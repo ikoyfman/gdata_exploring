@@ -31,6 +31,10 @@ def data_converter(data):
     except:
         gfit_data['distance'] = None
     
-    gfit_data['distance'] = data['Lap']['Intensity']
+    try:
+        gfit_data['intensity'] = data['Lap']['Intensity']
+    except:
+        gfit_data['intensity'] = None
+        
     gfit_data['total_time'] = data['Lap']['TotalTimeSeconds']
     return gfit_data
